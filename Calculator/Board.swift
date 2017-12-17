@@ -19,6 +19,8 @@ class Board: UIView {
     }
     */
     
+    var delegate:BoardButtonInputDelegate?
+    
     var dataArray = [
         "0",".","%","="
         ,"1","2","3","+"
@@ -65,10 +67,19 @@ class Board: UIView {
     
     @objc func btnClick(button:FuncButton) {
         print(button.title(for: .normal) as Any)
+        if delegate != nil{
+            delegate?.boardButtonClick(content: button.currentTitle!)
+        }
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
 
+}
+
+protocol BoardButtonInputDelegate {
+    func boardButtonClick(content:String)
 }
