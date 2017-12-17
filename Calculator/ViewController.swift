@@ -9,17 +9,12 @@
 import UIKit
 
 class ViewController: UIViewController,BoardButtonInputDelegate {
-    func boardButtonClick(content: String) {
-        if content == "AC" || content == "Del" || content == "="{
-            screen.refreshHistory()
-        }else{
-            screen.inputContent(content: content)
-        }
-    }
-    
-
+ 
+    let calculator = CalculatorEngine()
     let board = Board()
     let screen = Screen()
+    
+    var isNew = false
     
     
     override func viewDidLoad() {
@@ -57,6 +52,33 @@ class ViewController: UIViewController,BoardButtonInputDelegate {
         }
     }
 
+    
+    func boardButtonClick(content: String) {
+        if content == "AC" || content == "Del" || content == "="{
+            
+            switch content {
+            case "AC":
+                screen.clearContent()
+                screen.refreshHistory()
+            case "Del":
+                screen.deleteInput()
+            case "=":
+                let result = calculator.calculatEquation(equation: screen.inputString)
+                screen.refreshHistory()
+                screen.clearContent()
+                screen.inputContent(content: String(result))
+                isNew = true
+            default:
+                screen.refreshHistory()
+            }
+        }else{
+            if isNew {
+                screen.clearContent()
+                isNew = false
+            }
+            screen.inputContent(content: content)
+        }
+    }
 
 }
 

@@ -65,21 +65,21 @@ class Screen: UIView {
     }
     
     func inputContent(content:String) {
-        if !figureArray.contains(content.characters.last!) && !funcArray.contains(content) {
+        if !figureArray.contains(content.last!) && !funcArray.contains(content) {
             return;
         }
-        if inputString.characters.count>0 {
-            if figureArray.contains(inputString.characters.last!){
+        if inputString.count>0 {
+            if figureArray.contains(inputString.last!){
                 inputString.append(content)
                 inputLabel?.text = inputString
             }else{
-                if figureArray.contains(content.characters.last!){
+                if figureArray.contains(content.last!){
                     inputString.append(content)
                     inputLabel?.text = inputString
                 }
             }
         }else{
-            if figureArray.contains(content.characters.last!){
+            if figureArray.contains(content.last!){
                 inputString.append(content)
                 inputLabel?.text = inputString
             }
@@ -89,6 +89,17 @@ class Screen: UIView {
     func refreshHistory() {
         historyString = inputString
         historyLabel?.text = historyString
+    }
+    
+    func clearContent() -> Void {
+        inputString = ""
+    }
+    
+    func deleteInput() -> Void {
+        if inputString.count>0 {
+            inputString.remove(at: inputString.index(before:inputString.endIndex))
+            inputLabel?.text = inputString
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
