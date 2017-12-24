@@ -20,7 +20,6 @@ class Board: UIView {
     */
     
     var delegate:BoardButtonInputDelegate?
-    
     var dataArray = [
         "0",".","%","="
         ,"1","2","3","+"
@@ -36,7 +35,7 @@ class Board: UIView {
 
     func setupUI(){
         var frontBtn:FuncButton!
-        for index in 0..<20{
+        for index in 0..<dataArray.count{
             let btn = FuncButton()
             self.addSubview(btn)
             btn.snp.makeConstraints({(maker) in

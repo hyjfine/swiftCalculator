@@ -122,12 +122,9 @@
 		9F4C7DE21FE64E7A00598541 /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				9FB0F76B1FEBDB2200F13945 /* container */,
+				9FB0F76A1FEBDAB900F13945 /* component */,
 				9F4C7DE31FE64E7A00598541 /* AppDelegate.swift */,
-				9F4C7DE51FE64E7A00598541 /* ViewController.swift */,
-				9F4C7E131FE652B300598541 /* FuncButton.swift */,
-				9F11E2251FE680AF00A6C590 /* CalculatorEngine.swift */,
-				9F11E2231FE6744700A6C590 /* Screen.swift */,
-				9F4C7E151FE654C400598541 /* Board.swift */,
 				9F4C7DE71FE64E7A00598541 /* Main.storyboard */,
 				9F4C7DEA1FE64E7A00598541 /* Assets.xcassets */,
 				9F4C7DEC1FE64E7A00598541 /* LaunchScreen.storyboard */,
@@ -152,6 +149,42 @@
 				9F4C7E051FE64E7B00598541 /* Info.plist */,
 			);
 			path = CalculatorUITests;
+			sourceTree = "<group>";
+		};
+		9FB0F76A1FEBDAB900F13945 /* component */ = {
+			isa = PBXGroup;
+			children = (
+				9F4C7E131FE652B300598541 /* FuncButton.swift */,
+			);
+			path = component;
+			sourceTree = "<group>";
+		};
+		9FB0F76B1FEBDB2200F13945 /* container */ = {
+			isa = PBXGroup;
+			children = (
+				9FB0F7701FEBE12C00F13945 /* science */,
+				9FB0F76F1FEBE04500F13945 /* simple */,
+			);
+			name = container;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		9FB0F76F1FEBE04500F13945 /* simple */ = {
+			isa = PBXGroup;
+			children = (
+				9F11E2231FE6744700A6C590 /* Screen.swift */,
+				9F11E2251FE680AF00A6C590 /* CalculatorEngine.swift */,
+				9F4C7DE51FE64E7A00598541 /* ViewController.swift */,
+				9F4C7E151FE654C400598541 /* Board.swift */,
+			);
+			path = simple;
+			sourceTree = "<group>";
+		};
+		9FB0F7701FEBE12C00F13945 /* science */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = science;
 			sourceTree = "<group>";
 		};
 		C7659EBEC137A4BF1D9BD732 /* Frameworks */ = {
