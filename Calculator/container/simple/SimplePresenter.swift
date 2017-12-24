@@ -1,15 +1,19 @@
 //
-//  CalculatorEngine.swift
+//  SimplePresenter.swift
 //  Calculator
 //
-//  Created by heyongjian on 2017/12/17.
+//  Created by heyongjian on 2017/12/22.
 //  Copyright © 2017年 heyongjian. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-class CalculatorEngine: NSObject {
+class SimplePresenter:SimplePresenterProtocol{
+    
+    var view:SimpleViewProtocol?
+    //    let calculator = CalculatorEngine()
     let funcArray:CharacterSet = ["+","-","*","/","^","%"]
+    
     func calculatEquation(equation:String) -> Double {
         let elementArray = equation.components(separatedBy: funcArray)
         var tip = 0
@@ -57,4 +61,27 @@ class CalculatorEngine: NSObject {
         return result
     }
     
+    func setView(view: SimpleViewProtocol) {
+        self.view = view
+    }
+    
+    func boardButtonClick(content:String) {
+        if content == "AC" || content == "Del" || content == "="{
+            switch content {
+            case "AC":
+                view?.actionAc()
+            case "Del":
+                view?.actionDel()
+            case "=":
+                let result = calculatEquation(equation: (view?.getInputString())!)
+                view?.actionEqua(result:String(result))
+            default:
+                view?.actionAc()
+            }
+        }else{
+            view?.actionNum(content: content)
+        }
+    }
+    
 }
+

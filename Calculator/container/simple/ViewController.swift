@@ -8,25 +8,26 @@
 
 import UIKit
 
-class ViewController: UIViewController,BoardButtonInputDelegate {
- 
-    let calculator = CalculatorEngine()
+class ViewController: UIViewController,SimpleViewProtocol{
+    
+    let presenter = SimplePresenter()
     let board = Board()
     let screen = Screen()
     
     var isNew = false
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let board = Board(frame: CGRect(x:0,y:0, width:200,height:300))
-////        let board = Board()
-//
-//        self.view.addSubview(board)
+        //        let board = Board(frame: CGRect(x:0,y:0, width:200,height:300))
+        ////        let board = Board()
+        //
+        //        self.view.addSubview(board)
+        
+        presenter.setView(view: self)
         setUpView()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -34,7 +35,7 @@ class ViewController: UIViewController,BoardButtonInputDelegate {
     
     func setUpView(){
         self.view.addSubview(board)
-        board.delegate = self
+        board.setPresenter(presenter: presenter)
         board.snp.makeConstraints{(maker) in
             maker.left.equalTo(0)
             maker.right.equalTo(0)
@@ -48,37 +49,39 @@ class ViewController: UIViewController,BoardButtonInputDelegate {
             maker.right.equalTo(0)
             maker.top.equalTo(0)
             maker.bottom.equalTo(board.snp.top)
-
-        }
-    }
-
-    
-    func boardButtonClick(content: String) {
-        if content == "AC" || content == "Del" || content == "="{
             
-            switch content {
-            case "AC":
-                screen.clearContent()
-                screen.refreshHistory()
-            case "Del":
-                screen.deleteInput()
-            case "=":
-                let result = calculator.calculatEquation(equation: screen.inputString)
-                screen.refreshHistory()
-                screen.clearContent()
-                screen.inputContent(content: String(result))
-                isNew = true
-            default:
-                screen.refreshHistory()
-            }
-        }else{
-            if isNew {
-                screen.clearContent()
-                isNew = false
-            }
-            screen.inputContent(content: content)
         }
     }
-
+    
+    func actionAc() {
+        screen.clearContent()
+        screen.refreshHistory()
+    }
+    
+    func actionDel() {
+        screen.deleteInput()
+    }
+    
+    func actionEqua(result:String) {
+        screen.refreshHistory()
+        screen.clearContent()
+        screen.inputContent(content: String(result))
+        isNew = true
+    }
+    
+    func actionNum(content:String) {
+        if isNew {
+            screen.clearContent()
+            isNew = false
+        }
+        screen.inputContent(content: content)
+    }
+    
+    func getInputString() -> String {
+        return screen.inputString
+    }
+    
+    
 }
+
 

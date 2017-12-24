@@ -9,14 +9,14 @@
 import UIKit
 
 class Screen: UIView {
-
+    
     /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
+     // Only override draw() if you perform custom drawing.
+     // An empty implementation adversely affects performance during animation.
+     override func draw(_ rect: CGRect) {
+     // Drawing code
+     }
+     */
     var inputLabel:UILabel?
     var historyLabel:UILabel?
     var inputString = ""
@@ -61,7 +61,7 @@ class Screen: UIView {
             makeer.top.equalTo(10)
             makeer.height.equalTo(inputLabel!.superview!.snp.height).multipliedBy(0.5).offset(-10)
         })
-
+        
     }
     
     func inputContent(content:String) {
@@ -106,5 +106,6 @@ class Screen: UIView {
         fatalError("<#T##message: String##String#>")
     }
     
-
+    
 }
+

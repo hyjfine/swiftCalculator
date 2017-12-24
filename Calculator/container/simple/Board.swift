@@ -10,16 +10,16 @@ import UIKit
 import SnapKit
 
 class Board: UIView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
     
-    var delegate:BoardButtonInputDelegate?
+    /*
+     // Only override draw() if you perform custom drawing.
+     // An empty implementation adversely affects performance during animation.
+     override func draw(_ rect: CGRect) {
+     // Drawing code
+     }
+     */
+    private var presenter: SimplePresenter?
+    
     var dataArray = [
         "0",".","%","="
         ,"1","2","3","+"
@@ -32,7 +32,11 @@ class Board: UIView {
         super.init(frame: frame)
         setupUI()
     }
-
+    
+    func setPresenter(presenter: SimplePresenter) -> Void {
+        self.presenter = presenter
+    }
+    
     func setupUI(){
         var frontBtn:FuncButton!
         for index in 0..<dataArray.count{
@@ -66,9 +70,8 @@ class Board: UIView {
     
     @objc func btnClick(button:FuncButton) {
         print(button.title(for: .normal) as Any)
-        if delegate != nil{
-            delegate?.boardButtonClick(content: button.currentTitle!)
-        }
+        
+        presenter?.boardButtonClick(content: button.currentTitle!)
         
     }
     
@@ -76,9 +79,6 @@ class Board: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-
+    
 }
 
-protocol BoardButtonInputDelegate {
-    func boardButtonClick(content:String)
-}
