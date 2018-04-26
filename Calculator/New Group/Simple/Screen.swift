@@ -17,19 +17,20 @@ class Screen: UIView {
         // Drawing code
     }
     */
-    var inputLabel:UILabel?
-    var historyLabel:UILabel?
+    var inputLabel: UILabel?
+    var historyLabel: UILabel?
     var inputString = ""
     var historyString = ""
-    let figureArray:Array<Character> = ["0","1","2","3","4","5","6","7","8","9","."]
-    let funcArray = ["+","-","*","/","%","^"]
+    let figureArray: Array<Character> = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "."]
+    let funcArray = ["+", "-", "*", "/", "%", "^"]
+
     init() {
         inputLabel = UILabel()
         historyLabel = UILabel()
         super.init(frame: CGRect.zero)
         setupView()
     }
-    
+
     func setupView() {
         inputLabel?.textAlignment = .right
         historyLabel?.textAlignment = .right
@@ -47,15 +48,15 @@ class Screen: UIView {
         historyLabel?.numberOfLines = 0
         self.addSubview(inputLabel!)
         self.addSubview(historyLabel!)
-        
-        inputLabel?.snp.makeConstraints({(makeer) in
+
+        inputLabel?.snp.makeConstraints({ (makeer) in
             makeer.left.equalTo(10)
             makeer.right.equalTo(-10)
             makeer.bottom.equalTo(-10)
             makeer.height.equalTo(inputLabel!.superview!.snp.height).multipliedBy(0.5).offset(-10)
         })
-        
-        historyLabel?.snp.makeConstraints({(makeer) in
+
+        historyLabel?.snp.makeConstraints({ (makeer) in
             makeer.left.equalTo(10)
             makeer.right.equalTo(-10)
             makeer.top.equalTo(10)
@@ -63,48 +64,48 @@ class Screen: UIView {
         })
 
     }
-    
-    func inputContent(content:String) {
+
+    func inputContent(content: String) {
         if !figureArray.contains(content.last!) && !funcArray.contains(content) {
             return;
         }
-        if inputString.count>0 {
-            if figureArray.contains(inputString.last!){
+        if inputString.count > 0 {
+            if figureArray.contains(inputString.last!) {
                 inputString.append(content)
                 inputLabel?.text = inputString
-            }else{
-                if figureArray.contains(content.last!){
+            } else {
+                if figureArray.contains(content.last!) {
                     inputString.append(content)
                     inputLabel?.text = inputString
                 }
             }
-        }else{
-            if figureArray.contains(content.last!){
+        } else {
+            if figureArray.contains(content.last!) {
                 inputString.append(content)
                 inputLabel?.text = inputString
             }
         }
     }
-    
+
     func refreshHistory() {
         historyString = inputString
         historyLabel?.text = historyString
     }
-    
+
     func clearContent() -> Void {
         inputString = ""
     }
-    
+
     func deleteInput() -> Void {
-        if inputString.count>0 {
-            inputString.remove(at: inputString.index(before:inputString.endIndex))
+        if inputString.count > 0 {
+            inputString.remove(at: inputString.index(before: inputString.endIndex))
             inputLabel?.text = inputString
         }
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("<#T##message: String##String#>")
     }
-    
+
 
 }

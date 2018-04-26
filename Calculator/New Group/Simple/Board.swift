@@ -8,6 +8,8 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
 class Board: UIView {
 
@@ -18,68 +20,80 @@ class Board: UIView {
         // Drawing code
     }
     */
-    
-    var delegate:BoardButtonInputDelegate?
-    
+    private var disposeBag = DisposeBag()
+    var delegate: BoardButtonInputDelegate?
+
+    let nameSubject = ReplaySubject<String>.create(bufferSize: 1)
+
+
     var dataArray = [
-        "0",".","%","="
-        ,"1","2","3","+"
-        ,"4","5","6","-"
-        ,"7","8","9","*"
-        ,"AC","Del","^","/"
+        "0", ".", "%", "="
+        , "1", "2", "3", "+"
+        , "4", "5", "6", "-"
+        , "7", "8", "9", "*"
+        , "AC", "Del", "^", "/"
     ]
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
+
     }
 
-    func setupUI(){
-        var frontBtn:FuncButton!
-        for index in 0..<20{
+
+    func setupUI() {
+
+
+        var frontBtn: FuncButton!
+        for index in 0..<20 {
             let btn = FuncButton()
             self.addSubview(btn)
-            btn.snp.makeConstraints({(maker) in
+            btn.snp.makeConstraints({ (maker) in
                 if index % 4 == 0 {
                     maker.left.equalTo(0)
-                }else{
+                } else {
                     maker.left.equalTo(frontBtn.snp.right)
                 }
-                
-                if index/4 == 0 {
+
+                if index / 4 == 0 {
                     maker.bottom.equalTo(0)
-                }else if index % 4 == 0 {
+                } else if index % 4 == 0 {
                     maker.bottom.equalTo(frontBtn.snp.top)
-                }else{
+                } else {
                     maker.bottom.equalTo(frontBtn.snp.bottom)
                 }
-                
+
                 maker.width.equalTo(btn.superview!.snp.width).multipliedBy(0.25)
                 maker.height.equalTo(btn.superview!.snp.height).multipliedBy(0.2)
-                
+
             })
             btn.tag = index + 100
             btn.addTarget(self, action: #selector(btnClick(button:)), for: .touchUpInside)
             btn.setTitle(dataArray[index], for: UIControlState.normal)
             frontBtn = btn
         }
+
     }
-    
-    @objc func btnClick(button:FuncButton) {
+
+    @objc func btnClick(button: FuncButton) {
         print(button.title(for: .normal) as Any)
-        if delegate != nil{
+        if delegate != nil {
             delegate?.boardButtonClick(content: button.currentTitle!)
         }
-        
+
+
+        nameSubject.onNext(button.currentTitle ?? "err")
+
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
 
 }
 
 protocol BoardButtonInputDelegate {
-    func boardButtonClick(content:String)
+    func boardButtonClick(content: String)
 }
+
