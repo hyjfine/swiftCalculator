@@ -169,8 +169,7 @@
 			children = (
 				9FAD4B002091714E003FEBA9 /* Simple */,
 			);
-			name = Container;
-			path = "New Group";
+			path = Container;
 			sourceTree = "<group>";
 		};
 		9FAD4B002091714E003FEBA9 /* Simple */ = {
