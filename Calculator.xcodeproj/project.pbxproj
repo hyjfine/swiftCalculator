@@ -235,7 +235,6 @@
 				9F4C7DDD1FE64E7A00598541 /* Frameworks */,
 				9F4C7DDE1FE64E7A00598541 /* Resources */,
 				9279056C6D5D01CA3355948F /* [CP] Embed Pods Frameworks */,
-				EA29C8EB7AEA1765A824E081 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -254,8 +253,6 @@
 				9F4C7DF01FE64E7A00598541 /* Sources */,
 				9F4C7DF11FE64E7A00598541 /* Frameworks */,
 				9F4C7DF21FE64E7A00598541 /* Resources */,
-				B9E449E2F350C19AA52A5F25 /* [CP] Embed Pods Frameworks */,
-				A35A4D7976E6CE4C9EFD3FE9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -275,8 +272,6 @@
 				9F4C7DFB1FE64E7B00598541 /* Sources */,
 				9F4C7DFC1FE64E7B00598541 /* Frameworks */,
 				9F4C7DFD1FE64E7B00598541 /* Resources */,
-				61B15430802FAA64B2D753D7 /* [CP] Embed Pods Frameworks */,
-				E6849EF4EE4237B3E2C6D5DF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -380,21 +375,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		61B15430802FAA64B2D753D7 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CalculatorUITests/Pods-CalculatorUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		88DE231D40668F3F07D66F1C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -451,66 +431,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Calculator/Pods-Calculator-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A35A4D7976E6CE4C9EFD3FE9 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CalculatorTests/Pods-CalculatorTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B9E449E2F350C19AA52A5F25 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CalculatorTests/Pods-CalculatorTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E6849EF4EE4237B3E2C6D5DF /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CalculatorUITests/Pods-CalculatorUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EA29C8EB7AEA1765A824E081 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Calculator/Pods-Calculator-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
