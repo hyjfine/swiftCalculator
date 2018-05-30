@@ -48,6 +48,15 @@ class CalculatorViewModel: ViewModelType {
                 return self?.inputContent(content: buttonTitle, inputLabel: inputLabel) ?? ""
             }
         }
+        
+        let _ = currentTitle.asObservable().bind{[weak self] e in
+            if (String(e) == "123") {
+                print("-----test 1234")
+                self?.navigator?.toZhihu()
+                print("-----test 12345")
+
+            }
+            }.disposed(by: disposeBag)
 
         let historyTitle = input.buttonTitle.map { [weak self] buttonTitle -> String in
             let inputLabel = self?.screen.inputLabel?.text ?? ""

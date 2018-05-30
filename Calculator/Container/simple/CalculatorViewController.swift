@@ -11,9 +11,14 @@ import RxCocoa
 
 class CalculatorViewController: UIViewController {
 
-    private var viewModel: CalculatorViewModel!
+    var viewModel: CalculatorViewModel!
     private let disposeBag: DisposeBag = DisposeBag()
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
@@ -35,9 +40,9 @@ class CalculatorViewController: UIViewController {
             maker.right.equalTo(0)
             maker.top.equalTo(0)
             maker.bottom.equalTo(board.snp.top)
-
         }
-        viewModel = CalculatorViewModel(screen: screen)
+
+        viewModel = CalculatorViewModel(screen: screen, navigator: CalculatorNavigator(navigationController: self.navigationController))
 
     }
 

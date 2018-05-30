@@ -7,6 +7,9 @@ target 'Calculator' do
   pod 'SnapKit', '~> 4.0.0'
   pod 'RxSwift', '~> 4.0'
   pod 'RxCocoa', '~> 4.0'
+  pod 'ObjectMapper', '~>3.1.0'
+  pod 'Moya/RxSwift', '~> 11.0'
+  pod 'RxDataSources', '~> 3.0'
   # Pods for Calculator
 
   target 'CalculatorTests' do

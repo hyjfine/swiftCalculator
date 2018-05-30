@@ -7,23 +7,20 @@ import Foundation
 import UIKit
 
 protocol CalculatorNavigatorProtocol {
-    func toAbout()
+    func toZhihu()
 }
 
 class CalculatorNavigator: CalculatorNavigatorProtocol {
-    private let storyBoard: UIStoryboard
-    private let navigationController: UINavigationController
+    private let navigationController: UINavigationController?
 
-    init(navigationController: UINavigationController, storyBoard: UIStoryboard) {
+    init(navigationController: UINavigationController?) {
         self.navigationController = navigationController
-        self.storyBoard = storyBoard
     }
 
-    func toAbout() {
-//        let vc = storyBoard.instantiateViewController(withIdentifier: "viewController2")
-//
-////    let vc = ViewController()
-//        vc.viewModel = CalculatorViewModel(navigator: self)
-//        navigationController.pushViewController(vc, animated: true)
+    func toZhihu() {
+        let navigator = TableViewNavigator(navigationController: navigationController)
+        let vc = TableViewController()
+        vc.viewModel = TableViewModel(navigator: navigator)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
