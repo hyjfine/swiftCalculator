@@ -83,11 +83,11 @@ class Board: UIView {
 
 
         nameSubject.onNext(button.currentTitle ?? "err")
-        
+
         let animation = CATransition()
 //        animation.delegate = self
         animation.duration = 0.5
-        animation.timingFunction = CAMediaTimingFunction(name : kCAMediaTimingFunctionEaseInEaseOut)
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
 //        animation.type = kCATransitionPush
         button.layer.add(animation, forKey: nil)
     }

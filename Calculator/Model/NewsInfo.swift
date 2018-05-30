@@ -14,16 +14,16 @@ struct NewsInfo: Mappable {
     var images: String!
     var title: String!
     var type: Int!
-    
+
     init?(map: Map) {
-        
+
     }
-    
+
     mutating func mapping(map: Map) {
         id <- map["id"]
         images <- map["images"]
         title <- map["title"]
         type <- map["type"]
     }
-    
+
 }

@@ -1,2 +1,3 @@
 # swiftCalculator
-test swift
+- pod install
+- mvvm clearn architecture

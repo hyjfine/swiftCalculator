@@ -12,18 +12,18 @@ import ObjectMapper
 struct NewsLatest: Mappable {
     var date: String!
     var stories: [NewsInfo] = []
-    
+
     init?(map: Map) {
-        
+
     }
-    
+
     init() {
-        
+
     }
-    
+
     mutating func mapping(map: Map) {
         date <- map["date"]
         stories <- map["stories"]
     }
-    
+
 }

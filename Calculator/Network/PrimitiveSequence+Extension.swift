@@ -12,41 +12,41 @@ import Moya
 import ObjectMapper
 
 extension PrimitiveSequence where TraitType == SingleTrait, ElementType == Response {
-    
+
     // MARK: - object
-    
+
     func mapToObject<T: Mappable>(type: T.Type) -> Single<T> {
         return mapToResponse()
-            .map {
-                guard let result = $0, let dict = result as? [String: Any], !dict.isEmpty else {
-                    throw MoyaErrorType.notValidData
+                .map {
+                    guard let result = $0, let dict = result as? [String: Any], !dict.isEmpty else {
+                        throw MoyaErrorType.notValidData
+                    }
+
+                    guard let obj = Mapper<T>().map(JSON: dict) else {
+                        throw MoyaErrorType.mappable
+                    }
+
+                    return obj
                 }
-                
-                guard let obj = Mapper<T>().map(JSON: dict) else {
-                    throw MoyaErrorType.mappable
-                }
-                
-                return obj
-        }
-        
+
     }
-    
+
     // MARK: - array
-    
+
     func mapToArray<T: Mappable>(type: T.Type) -> Single<[T]> {
         return mapToResponse()
-            .map {
-                guard let response = $0 as? [Any], let dicts = response as? [[String: Any]] else {
-                    throw MoyaErrorType.notValidData
+                .map {
+                    guard let response = $0 as? [Any], let dicts = response as? [[String: Any]] else {
+                        throw MoyaErrorType.notValidData
+                    }
+
+                    let array = Mapper<T>().mapArray(JSONArray: dicts)
+                    return array
                 }
-                
-                let array = Mapper<T>().mapArray(JSONArray: dicts)
-                return array
-        }
     }
-    
+
     // MARK: - response
-    
+
     func mapToResponse() -> Single<Any?> {
         return asObservable().map { response in
             guard let json = try? JSONSerialization.jsonObject(with: response.data, options: .allowFragments) else {
@@ -56,7 +56,7 @@ extension PrimitiveSequence where TraitType == SingleTrait, ElementType == Respo
                 throw MoyaErrorType.fail
             }
             return json
-            }.asSingle()
+        }.asSingle()
     }
 }
 
@@ -71,5 +71,5 @@ public enum MoyaErrorType: String {
 }
 
 extension MoyaErrorType: Error {
-    
+
 }

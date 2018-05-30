@@ -16,12 +16,12 @@ class NewsLatestController: UIViewController {
     var viewModel: NewsLatestViewModel!
     private let disposeBag: DisposeBag = DisposeBag()
     private var data: NewsLatest?
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = false
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.gray
@@ -33,27 +33,27 @@ class NewsLatestController: UIViewController {
     private func setUpView() {
         self.view.addSubview(button)
         self.view.addSubview(tableView)
-        
+
         button.snp.makeConstraints { (maker) in
             maker.left.equalTo(0)
             maker.right.equalTo(0)
             maker.bottom.equalTo(-30)
             maker.height.equalTo(30)
         }
-        
+
         tableView.snp.makeConstraints { (make) in
             make.left.right.top.equalTo(0)
             make.bottom.equalTo(self.button.snp.top)
         }
-                
+
     }
 
     private func setUpBinding() {
         let input = NewsLatestViewModel.Input(buttonTitle: button.rx.tap.asDriver())
         let output = viewModel.transform(input: input)
-        
+
         output.newsList.drive(self.tableView.rx.items(dataSource: self.dataSource())).disposed(by: disposeBag)
-        
+
     }
 
     private lazy var tableView: UITableView = {
@@ -65,10 +65,10 @@ class NewsLatestController: UIViewController {
         tableView.showsHorizontalScrollIndicator = false
         tableView.showsVerticalScrollIndicator = false
         tableView.register(NewsLatestCell.self)
-        
+
         return tableView
     }()
-    
+
     private lazy var button: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("click", for: .normal)
@@ -76,38 +76,38 @@ class NewsLatestController: UIViewController {
         return button
     }()
 
-    @objc func  btnClick() {
+    @objc func btnClick() {
         print("-----hello")
         getNewsLatest()
     }
 
     private func getNewsLatest() {
         APIProvider.rx.request(.getNewsLatest)
-            .mapToObject(type: NewsLatest.self)
-            .subscribe { (event) in
-                switch event {
-                case .success(let result):
-                    self.data = result
-                    print("---success",result.toJSON())
-                    self.tableView.reloadData()
-                case .error(let error):
-                    print("----error ", error)
-                }
-        }.disposed(by: disposeBag)
+                .mapToObject(type: NewsLatest.self)
+                .subscribe { (event) in
+                    switch event {
+                    case .success(let result):
+                        self.data = result
+                        print("---success", result.toJSON())
+                        self.tableView.reloadData()
+                    case .error(let error):
+                        print("----error ", error)
+                    }
+                }.disposed(by: disposeBag)
 
     }
 
     private func getNewsDetails(id: Int) {
         APIProvider.rx.request(.getNewsDetails(id))
-            .mapToObject(type: NewsDetailInfo.self)
-            .subscribe { (event) in
-                switch event {
-                case .success(let result):
-                    print("-----success ", result)
-                case .error(let error):
-                    print("----error ", error)
-                }
-            }.disposed(by: disposeBag)
+                .mapToObject(type: NewsDetailInfo.self)
+                .subscribe { (event) in
+                    switch event {
+                    case .success(let result):
+                        print("-----success ", result)
+                    case .error(let error):
+                        print("----error ", error)
+                    }
+                }.disposed(by: disposeBag)
 
     }
 
@@ -116,11 +116,11 @@ class NewsLatestController: UIViewController {
 extension NewsLatestController {
     private func dataSource() -> RxTableViewSectionedAnimatedDataSource<NewsLatestSection> {
         return RxTableViewSectionedAnimatedDataSource<NewsLatestSection>(
-            configureCell: { (data, table, indexPath, item) in
-                let cell: NewsLatestCell = table.dequeueReusableCell(NewsLatestCell.self)
-                cell.data = item
-                return cell
-        })
+                configureCell: { (data, table, indexPath, item) in
+                    let cell: NewsLatestCell = table.dequeueReusableCell(NewsLatestCell.self)
+                    cell.data = item
+                    return cell
+                })
     }
 }
 
@@ -165,12 +165,12 @@ public extension UITableView {
         }
         return cell
     }
-    
+
     /**
      Register cell class
      - parameter aClass: class
      */
-    
+
     func register<T: UITableViewCell>(_ aClass: T.Type) -> Void {
         let name = String(describing: aClass)
         self.register(aClass, forCellReuseIdentifier: name)

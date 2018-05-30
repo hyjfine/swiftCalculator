@@ -15,31 +15,31 @@ class NewsLatestCell: UITableViewCell {
         setupUI()
         autoLayout()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func setupUI() {
         contentView.addSubview(title)
     }
-    
+
     func autoLayout() {
         title.snp.makeConstraints { (make) in
             make.left.equalTo(16)
             make.centerY.equalToSuperview()
         }
     }
-    
+
     private lazy var title: UILabel = {
         let label = UILabel()
         label.backgroundColor = .clear
         label.textAlignment = .right
         return label
     }()
-    
-    var data: String? = nil{
-        didSet{
+
+    var data: String? = nil {
+        didSet {
             title.text = data
         }
     }

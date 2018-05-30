@@ -18,7 +18,7 @@ class CalculatorViewController: UIViewController {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpView()

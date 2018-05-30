@@ -17,11 +17,11 @@ struct NewsLatestSection {
 
 extension NewsLatestSection: AnimatableSectionModelType {
     typealias Item = String
-    
+
     var identity: String {
         return header
     }
-    
+
     init(original: NewsLatestSection, items: [Item]) {
         self = original
         self.items = items

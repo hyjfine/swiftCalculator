@@ -9,22 +9,22 @@
 import Foundation
 import UIKit
 
-protocol NewsLatestNavigatorProtocol{
+protocol NewsLatestNavigatorProtocol {
     func goTest()
 }
 
-class NewsLatestNavigator: NewsLatestNavigatorProtocol{
+class NewsLatestNavigator: NewsLatestNavigatorProtocol {
     private let navigationController: UINavigationController?
-    
+
     init(navigationController: UINavigationController?) {
         self.navigationController = navigationController
     }
-    
+
     func goTest() {
         let navigator = CalculatorNavigator(navigationController: navigationController)
         let vc = CalculatorViewController()
         vc.viewModel = CalculatorViewModel(screen: Screen(), navigator: navigator)
         navigationController?.pushViewController(vc, animated: true)
     }
-    
+
 }
