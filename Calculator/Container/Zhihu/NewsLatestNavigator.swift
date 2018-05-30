@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 
-protocol TableViewNavigatorProtocol{
+protocol NewsLatestNavigatorProtocol{
     func goTest()
 }
 
-class NewsLatestNavigator: TableViewNavigatorProtocol{
+class NewsLatestNavigator: NewsLatestNavigatorProtocol{
     private let navigationController: UINavigationController?
     
     init(navigationController: UINavigationController?) {

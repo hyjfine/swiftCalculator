@@ -18,9 +18,9 @@ class CalculatorNavigator: CalculatorNavigatorProtocol {
     }
 
     func toZhihu() {
-        let navigator = TableViewNavigator(navigationController: navigationController)
-        let vc = TableViewController()
-        vc.viewModel = TableViewModel(navigator: navigator)
+        let navigator = NewsLatestNavigator(navigationController: navigationController)
+        let vc = NewsLatestController()
+        vc.viewModel = NewsLatestViewModel(navigator: navigator)
         navigationController?.pushViewController(vc, animated: true)
     }
 }

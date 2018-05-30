@@ -11,9 +11,9 @@ import Differentiator
 
 class NewsLatestViewModel: ViewModelType {
     private let disposeBag: DisposeBag = DisposeBag()
-    private let navigator: TableViewNavigatorProtocol
+    private let navigator: NewsLatestNavigatorProtocol
     
-    init(navigator: TableViewNavigatorProtocol) {
+    init(navigator: NewsLatestNavigatorProtocol) {
         self.navigator = navigator
     }
     

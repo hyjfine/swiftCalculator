@@ -9,13 +9,13 @@
 /* Begin PBXBuildFile section */
 		0497ED7466BF31C47471C571 /* Pods_CalculatorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 605CD560A7DA8294755FFDC1 /* Pods_CalculatorTests.framework */; };
 		450CEF02D51423270B43005B /* Pods_CalculatorUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0910AF0879D9DB1CEE7D3879 /* Pods_CalculatorUITests.framework */; };
-		87A9F1921A0422D395E08E8F /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9F073767F990C0ADC33AE /* TableViewController.swift */; };
+		87A9F1921A0422D395E08E8F /* NewsLatestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9F073767F990C0ADC33AE /* NewsLatestController.swift */; };
 		87A9F2490ECD43046A868B3A /* CalculatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9F27CA89FD0A08B5D4DF0 /* CalculatorViewModel.swift */; };
 		87A9F2B500F28C4EE4D242DD /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9F1E0231CC9431B91E8D1 /* ViewModelType.swift */; };
 		87A9F43706C9296C87B13B11 /* ResultPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9F9CAEFE5ED836B3DFF5A /* ResultPlugin.swift */; };
 		87A9F5A30FC787AAEC94FD47 /* NewsDetailInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9F7798DA89E6D1E8091AF /* NewsDetailInfo.swift */; };
 		87A9F7079E7109C119B86480 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9F5B701A2CD5E10147DF8 /* CalculatorViewController.swift */; };
-		87A9F781B4F37FDC0A142E6F /* TableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9F3102D4AA2C8023EFA92 /* TableViewModel.swift */; };
+		87A9F781B4F37FDC0A142E6F /* NewsLatestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9F3102D4AA2C8023EFA92 /* NewsLatestViewModel.swift */; };
 		87A9F7EF4651531FAF7837DE /* CalculatorNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9F2E41622AE5E857DA2F1 /* CalculatorNavigator.swift */; };
 		87A9F882BAEEA6AAA1F4CA46 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9F751F720F14E473F6980 /* APIManager.swift */; };
 		9F07706720B0102900257785 /* PrimitiveSequence+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F07706620B0102900257785 /* PrimitiveSequence+Extension.swift */; };
@@ -24,7 +24,7 @@
 		9F07706D20B01C6100257785 /* NewsLatestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F07706C20B01C6100257785 /* NewsLatestCell.swift */; };
 		9F11E2241FE6744700A6C590 /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F11E2231FE6744700A6C590 /* Screen.swift */; };
 		9F30222720BE2A8500B9337A /* NewsLatestSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F30222620BE2A8500B9337A /* NewsLatestSection.swift */; };
-		9F30222920BE7E1B00B9337A /* TableViewNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F30222820BE7E1B00B9337A /* TableViewNavigator.swift */; };
+		9F30222920BE7E1B00B9337A /* NewsLatestNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F30222820BE7E1B00B9337A /* NewsLatestNavigator.swift */; };
 		9F4C7DE41FE64E7A00598541 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4C7DE31FE64E7A00598541 /* AppDelegate.swift */; };
 		9F4C7DE91FE64E7A00598541 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F4C7DE71FE64E7A00598541 /* Main.storyboard */; };
 		9F4C7DEB1FE64E7A00598541 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F4C7DEA1FE64E7A00598541 /* Assets.xcassets */; };
@@ -62,11 +62,11 @@
 		4BBBBDAA336664F0BA1DF922 /* Pods-CalculatorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalculatorTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CalculatorTests/Pods-CalculatorTests.debug.xcconfig"; sourceTree = "<group>"; };
 		605CD560A7DA8294755FFDC1 /* Pods_CalculatorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalculatorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6397D3070EBCE525853C2125 /* Pods-CalculatorUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalculatorUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CalculatorUITests/Pods-CalculatorUITests.release.xcconfig"; sourceTree = "<group>"; };
-		87A9F073767F990C0ADC33AE /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		87A9F073767F990C0ADC33AE /* NewsLatestController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsLatestController.swift; sourceTree = "<group>"; };
 		87A9F1E0231CC9431B91E8D1 /* ViewModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		87A9F27CA89FD0A08B5D4DF0 /* CalculatorViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorViewModel.swift; sourceTree = "<group>"; };
 		87A9F2E41622AE5E857DA2F1 /* CalculatorNavigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorNavigator.swift; sourceTree = "<group>"; };
-		87A9F3102D4AA2C8023EFA92 /* TableViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewModel.swift; sourceTree = "<group>"; };
+		87A9F3102D4AA2C8023EFA92 /* NewsLatestViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsLatestViewModel.swift; sourceTree = "<group>"; };
 		87A9F5B701A2CD5E10147DF8 /* CalculatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
 		87A9F751F720F14E473F6980 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		87A9F7798DA89E6D1E8091AF /* NewsDetailInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetailInfo.swift; sourceTree = "<group>"; };
@@ -77,7 +77,7 @@
 		9F07706C20B01C6100257785 /* NewsLatestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsLatestCell.swift; sourceTree = "<group>"; };
 		9F11E2231FE6744700A6C590 /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
 		9F30222620BE2A8500B9337A /* NewsLatestSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsLatestSection.swift; sourceTree = "<group>"; };
-		9F30222820BE7E1B00B9337A /* TableViewNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewNavigator.swift; sourceTree = "<group>"; };
+		9F30222820BE7E1B00B9337A /* NewsLatestNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsLatestNavigator.swift; sourceTree = "<group>"; };
 		9F4C7DE01FE64E7A00598541 /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F4C7DE31FE64E7A00598541 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9F4C7DE81FE64E7A00598541 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -136,10 +136,10 @@
 		87A9F97EA905D294862F4067 /* Zhihu */ = {
 			isa = PBXGroup;
 			children = (
-				87A9F073767F990C0ADC33AE /* TableViewController.swift */,
-				9F30222820BE7E1B00B9337A /* TableViewNavigator.swift */,
+				87A9F073767F990C0ADC33AE /* NewsLatestController.swift */,
+				9F30222820BE7E1B00B9337A /* NewsLatestNavigator.swift */,
 				9F07706C20B01C6100257785 /* NewsLatestCell.swift */,
-				87A9F3102D4AA2C8023EFA92 /* TableViewModel.swift */,
+				87A9F3102D4AA2C8023EFA92 /* NewsLatestViewModel.swift */,
 				9F30222620BE2A8500B9337A /* NewsLatestSection.swift */,
 			);
 			path = Zhihu;
@@ -521,10 +521,10 @@
 				87A9F7079E7109C119B86480 /* CalculatorViewController.swift in Sources */,
 				9F07706720B0102900257785 /* PrimitiveSequence+Extension.swift in Sources */,
 				9F30222720BE2A8500B9337A /* NewsLatestSection.swift in Sources */,
-				87A9F1921A0422D395E08E8F /* TableViewController.swift in Sources */,
+				87A9F1921A0422D395E08E8F /* NewsLatestController.swift in Sources */,
 				9F07706920B013F700257785 /* NewsInfo.swift in Sources */,
-				87A9F781B4F37FDC0A142E6F /* TableViewModel.swift in Sources */,
-				9F30222920BE7E1B00B9337A /* TableViewNavigator.swift in Sources */,
+				87A9F781B4F37FDC0A142E6F /* NewsLatestViewModel.swift in Sources */,
+				9F30222920BE7E1B00B9337A /* NewsLatestNavigator.swift in Sources */,
 				87A9F882BAEEA6AAA1F4CA46 /* APIManager.swift in Sources */,
 				87A9F43706C9296C87B13B11 /* ResultPlugin.swift in Sources */,
 				87A9F5A30FC787AAEC94FD47 /* NewsDetailInfo.swift in Sources */,

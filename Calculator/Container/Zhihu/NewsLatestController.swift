@@ -13,7 +13,7 @@ import Differentiator
 
 class NewsLatestController: UIViewController {
 
-    var viewModel: TableViewModel!
+    var viewModel: NewsLatestViewModel!
     private let disposeBag: DisposeBag = DisposeBag()
     private var data: NewsLatest?
     
@@ -49,7 +49,7 @@ class NewsLatestController: UIViewController {
     }
 
     private func setUpBinding() {
-        let input = TableViewModel.Input(buttonTitle: button.rx.tap.asDriver())
+        let input = NewsLatestViewModel.Input(buttonTitle: button.rx.tap.asDriver())
         let output = viewModel.transform(input: input)
         
         output.newsList.drive(self.tableView.rx.items(dataSource: self.dataSource())).disposed(by: disposeBag)
